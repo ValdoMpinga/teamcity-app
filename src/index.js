@@ -1,26 +1,14 @@
-// calculator.js
-function add(a, b)
-{
-    return a + b;
-}
+// index.js
+const app = require('./calculator');
 
-function subtract(a, b)
-{
-    return a - b;
-}
+const PORT = process.env.PORT || 3000;
 
-function multiply(a, b)
+app.listen(PORT, () =>
 {
-    return a * b;
-}
+    console.log(`Server is running on port ${PORT}`);
+});
 
-function divide(a, b)
-{
-    if (b === 0)
-    {
-        throw new Error("Cannot divide by zero");
-    }
-    return a / b;
-}
+//docker build -t teamcity-app .
 
-module.exports = { add, subtract, multiply, divide };
+//docker run -p 3000:3000 -d teamcity-app
+

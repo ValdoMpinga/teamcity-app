@@ -1,0 +1,21 @@
+{
+  "name": "teamcity-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "mocha",
+    "coverage": "nyc mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^10.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "nyc": "^15.1.0"
+  }
+}

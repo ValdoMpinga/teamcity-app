@@ -43,9 +43,4 @@ app.post('/divide', (req, res) =>
     }
 });
 
-function teamCityTriggerTest()
-{
-    
-}
-
 module.exports = app;

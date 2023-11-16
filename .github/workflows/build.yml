@@ -22,9 +22,9 @@ jobs:
         run: npm test
 
       - name: Build and push Docker image
-      - uses: valdompinga/teamcity-app/teamcity-app
+      - uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: repo/image
+          image: valdompinga/teamcity-app/teamcity-app
           registry: docker.io
           dockerfile: Dockerfile.ci
           username: ${{ secrets.DOCKER_USERNAME }}

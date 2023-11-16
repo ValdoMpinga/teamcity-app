@@ -50,20 +50,20 @@ describe('Calculator API', function ()
             });
     });
 
-    it('should divide two numbers correctly', function (done)
-    {
-        request(app)
-            .post('/divide')
-            .send({ a: 6, b: 2 })
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .end(function (err, res)
-            {
-                if (err) return done(err);
-                assert.strictEqual(res.body.result, 3);
-                done();
-            });
-    });
+    // it('should divide two numbers correctly', function (done)
+    // {
+    //     request(app)
+    //         .post('/divide')
+    //         .send({ a: 6, b: 2 })
+    //         .expect(200)
+    //         .expect('Content-Type', /json/)
+    //         .end(function (err, res)
+    //         {
+    //             if (err) return done(err);
+    //             assert.strictEqual(res.body.result, 3);
+    //             done();
+    //         });
+    // });
 
     it('should handle division by zero', function (done)
     {

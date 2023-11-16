@@ -21,5 +21,10 @@
     "nyc": "^15.1.0",
     "supertest": "^6.3.3",
     "wait-on": "^7.2.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 70,
+    "functions": 70
   }
 }

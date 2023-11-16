@@ -15,7 +15,7 @@ describe('Calculator API', function ()
             .end(function (err, res)
             {
                 if (err) return done(err);
-                assert.strictEqual(res.body.result, 3);//4
+                assert.strictEqual(res.body.result, 354);// if i change this value, the workflow in github actions will fail, because one of the tests fails!
                 done();
             });
     });

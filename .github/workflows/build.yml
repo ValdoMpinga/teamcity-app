@@ -1,16 +1,17 @@
-name: Node.js CI #name  
+name: Node.js CI
 
-on: #events
+on:
   push:
     branches: [ "main", "pipelines"]
 
-
-jobs: #List of actions
+jobs:
   build-node:
-    runs-on:   ubuntu-latest
-    container:  node:20
+    runs-on: ubuntu-latest
+    container: node:20
     steps:
-      - run:  node  --version
-      - uses:  actions/checkout@v3
-      - run:  npm ci
-      - run:  npm start & npx wait-on http://localhost:3000
+      - run: node --version
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm start &
+      - run: npx wait-on http://localhost:3000
+      - run: npm test  # Add your test command or any other steps you need

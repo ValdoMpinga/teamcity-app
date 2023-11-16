@@ -15,25 +15,26 @@ describe('Calculator API', function ()
             .end(function (err, res)
             {
                 if (err) return done(err);
-                assert.strictEqual(res.body.result, 354);// if i change this value, the workflow in github actions will fail, because one of the tests fails!
+                assert.strictEqual(res.body.result, 3);// if i change this value, the workflow in github actions will fail, because one of the tests fails!
                 done();
             });
     });
 
-    it('should subtract two numbers correctly', function (done)
-    {
-        request(app)
-            .post('/subtract')
-            .send({ a: 5, b: 3 })
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .end(function (err, res)
-            {
-                if (err) return done(err);
-                assert.strictEqual(res.body.result, 2);
-                done();
-            });
-    });
+    //By commenting this test function, the workflow will fail, because the code coverage for the functions is set to 100%!!!
+    // it('should subtract two numbers correctly', function (done)
+    // {
+    //     request(app)
+    //         .post('/subtract')
+    //         .send({ a: 5, b: 3 })
+    //         .expect(200)
+    //         .expect('Content-Type', /json/)
+    //         .end(function (err, res)
+    //         {
+    //             if (err) return done(err);
+    //             assert.strictEqual(res.body.result, 2);
+    //             done();
+    //         });
+    // });
 
     it('should multiply two numbers correctly', function (done)
     {

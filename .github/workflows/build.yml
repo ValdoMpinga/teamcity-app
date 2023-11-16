@@ -2,7 +2,7 @@ name: Node.js CI #name
 
 on: #events
   push:
-    branches: [ "main" ]
+    branches: [ "main", "pipelines"]
 
 
 jobs: #List of actions

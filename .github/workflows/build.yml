@@ -23,7 +23,6 @@ jobs:
 
       - name: Build and push Docker image
       - uses: valdompinga/teamcity-app/teamcity-app
-        name: Build & push Docker image
         with:
           image: repo/image
           registry: docker.io

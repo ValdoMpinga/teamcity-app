@@ -2,14 +2,21 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main", "pipelines"]
+    branches: ["main", "pipelines"]
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  build-node:
+  build-and-test:
     runs-on: ubuntu-latest
     container: node:20
     steps:
-      - run: node --version
-      - uses: actions/checkout@v3
-      - run: npm ci
-      - run: npm test  # Add your test command or any other steps you need
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test

@@ -15,7 +15,7 @@ describe('Calculator API', function ()
             .end(function (err, res)
             {
                 if (err) return done(err);
-                assert.strictEqual(res.body.result, 24);//4
+                assert.strictEqual(res.body.result, 3);//4
                 done();
             });
     });

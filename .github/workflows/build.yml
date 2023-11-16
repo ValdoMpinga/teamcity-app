@@ -1,0 +1,17 @@
+name: Node.js CI #name  
+
+on: #events
+  push:
+    branches: [ "main" ]
+
+
+jobs: #List of actions
+  build-node:
+    runs-on:   ubuntu-latest
+    container:  node:20
+    steps:
+      - run:  node  --version
+      - run:  node  --version
+      - uses:  actions/checkout@v3
+      - run:  npm i
+      - run:  npm start

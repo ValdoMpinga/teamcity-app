@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
+    "start:dev": "NODE_ENV=development nodemon ./src/index.js",
     "test": "mocha",
     "coverage": "nyc mocha"
   },
@@ -12,10 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "mocha": "^10.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "supertest": "^6.3.3",
+    "wait-on": "^7.2.0"
   }
 }

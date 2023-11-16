@@ -1,31 +1,82 @@
 // test.js
 const assert = require('assert');
-const calculator = require('../src/index');
+const request = require('supertest');
+const app = require('../src/calculator');
 
-describe('Calculator', function ()
+describe('Calculator API', function ()
 {
-    it('should add two numbers correctly', function ()
+    it('should add two numbers correctly', function (done)
     {
-        assert.strictEqual(calculator.add(1, 2), 3);
+        request(app)
+            .post('/add')
+            .send({ a: 1, b: 2 })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.result, 3);//4
+                done();
+            });
     });
 
-    it('should subtract two numbers correctly', function ()
+    it('should subtract two numbers correctly', function (done)
     {
-        assert.strictEqual(calculator.subtract(5, 3), 2);
+        request(app)
+            .post('/subtract')
+            .send({ a: 5, b: 3 })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.result, 2);
+                done();
+            });
     });
 
-    it('should multiply two numbers correctly', function ()
+    it('should multiply two numbers correctly', function (done)
     {
-        assert.strictEqual(calculator.multiply(4, 2), 8);
+        request(app)
+            .post('/multiply')
+            .send({ a: 4, b: 2 })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.result, 8);
+                done();
+            });
     });
 
-    it('should divide two numbers correctly', function ()
+    it('should divide two numbers correctly', function (done)
     {
-        assert.strictEqual(calculator.divide(6, 2), 3);
+        request(app)
+            .post('/divide')
+            .send({ a: 6, b: 2 })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.result, 3);
+                done();
+            });
     });
 
-    it('should throw an error when dividing by zero', function ()
+    it('should handle division by zero', function (done)
     {
-        assert.throws(() => calculator.divide(6, 0), /Cannot divide by zero/);
+        request(app)
+            .post('/divide')
+            .send({ a: 6, b: 0 })
+            .expect(400)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.error, 'Cannot divide by zero');
+                done();
+            });
     });
 });

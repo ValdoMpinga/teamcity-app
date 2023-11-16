@@ -12,6 +12,5 @@ jobs:
       - run: node --version
       - uses: actions/checkout@v3
       - run: npm ci
-      - run: npm start &
-      - run: npx wait-on http://localhost:3000
+      - run: npm start
       - run: npm test  # Add your test command or any other steps you need

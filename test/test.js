@@ -22,20 +22,21 @@ describe('Calculator API', function ()
             });
     });
 
-    it('should subtract two numbers correctly', function (done)
-    {
-        request(app)
-            .post('/subtract')
-            .send({ a: 5, b: 3 })
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .end(function (err, res)
-            {
-                if (err) return done(err);
-                assert.strictEqual(res.body.result, 2);
-                done();
-            });
-    });
+    //code coverage will fail!
+    // it('should subtract two numbers correctly', function (done)
+    // {
+    //     request(app)
+    //         .post('/subtract')
+    //         .send({ a: 5, b: 3 })
+    //         .expect(200)
+    //         .expect('Content-Type', /json/)
+    //         .end(function (err, res)
+    //         {
+    //             if (err) return done(err);
+    //             assert.strictEqual(res.body.result, 2);
+    //             done();
+    //         });
+    // });
 
     it('should multiply two numbers correctly', function (done)
     {

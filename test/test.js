@@ -7,7 +7,20 @@ const app = require('../src/calculator');
 
 describe('Calculator API', function ()
 {
-
+    it('should add two numbers correctly', function (done)
+    {
+        request(app)
+            .post('/add')
+            .send({ a: 1, b: 2 })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res)
+            {
+                if (err) return done(err);
+                assert.strictEqual(res.body.result, 3);//everything will be correct
+                done();
+            });
+    });
 
     it('should subtract two numbers correctly', function (done)
     {
